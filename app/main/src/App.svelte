@@ -1,38 +1,34 @@
 <script>
-  import Greet from './lib/Greet.svelte'
+  import Greet from "./lib/Greet.svelte";
+  import DateSetter from "./lib/DateSetter.svelte";
+
+  import { startDate, endDate } from "./store/store";
+
+  let dateOfStart;
+  let dateOfEnd;
+
+  startDate.subscribe((value) => {
+    dateOfStart = value;
+  });
+
+  endDate.subscribe((value) => {
+    dateOfEnd = value;
+  });
 </script>
 
 <main class="container">
-  <h1>Welcome to Tauri!</h1>
-
-  <div class="row">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo vite" alt="Vite Logo" />
-    </a>
-    <a href="https://tauri.app" target="_blank">
-      <img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank">
-      <img src="/svelte.svg" class="logo svelte" alt="Svelte Logo" />
-    </a>
+  <h1>Course Calculator</h1>
+  <div class="row spread">
+    <p>{dateOfStart}</p>
+    <p>{dateOfEnd}</p>
   </div>
-
-  <p>
-    Click on the Tauri, Vite, and Svelte logos to learn more.
-  </p>
-
-  <div class="row">
-    <Greet />
+  <div class="row ">
+    <DateSetter />
   </div>
-
 </main>
 
 <style>
-  .logo.vite:hover {
-    filter: drop-shadow(0 0 2em #747bff);
-  }
-
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00);
+  .spread {
+    justify-content: space-evenly;
   }
 </style>
