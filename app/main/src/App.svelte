@@ -1,6 +1,9 @@
 <script>
   import Greet from "./lib/Greet.svelte";
-  import DateSetter from "./lib/DateSetter.svelte";
+  import ColumnFlexContainer from "./lib/base_componets/ColumnFlexContainer.svelte";
+  import DateSetter from "./lib/course_dates_components/DateSetter.svelte";
+  import DateCalculations from "./lib/course_dates_components/DateCalculations.svelte";
+  import CouresSchedulueSettings from "./lib/course_dates_components/course_scheduling/CouresSchedulueSettings.svelte";
 
   import { startDate, endDate } from "./store/store";
 
@@ -18,17 +21,18 @@
 
 <main class="container">
   <h1>Course Calculator</h1>
-  <div class="row spread">
-    <p>{dateOfStart}</p>
-    <p>{dateOfEnd}</p>
-  </div>
-  <div class="row ">
+  <div class="column">
     <DateSetter />
+
+    <DateCalculations />
   </div>
 </main>
 
 <style>
-  .spread {
-    justify-content: space-evenly;
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 </style>

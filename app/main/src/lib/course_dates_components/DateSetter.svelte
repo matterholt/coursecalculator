@@ -1,4 +1,6 @@
 <script>
+  import ColumnFlexContainer from "../base_componets/ColumnFlexContainer.svelte";
+
   //   import { startDate, endDate } from "../store/store";
 
   let startDate = "";
@@ -8,8 +10,7 @@
   //   $: console.log(startDate);
 </script>
 
-<div class="datesetter__containter">
-  <p>THIS IS THE DATE {startDate}</p>
+<ColumnFlexContainer>
   <label>
     Start Date:
     <input type="date" bind:value={startDate} />
@@ -18,11 +19,15 @@
     Projected End Date:
     <input type="date" bind:value={endDate} />
   </label>
-</div>
+</ColumnFlexContainer>
 
 <style>
-  .datesetter__containter {
+  label {
     display: flex;
-    outline: solid;
+    flex-direction: column;
+    height: min-content;
+  }
+  input {
+    padding: 5px;
   }
 </style>
