@@ -8,6 +8,10 @@
   //   startDate.set(1)
   //   endDate.set(1)
   //   $: console.log(startDate);
+
+
+  // active method of calcualtion
+  let selected
 </script>
 
 <ColumnFlexContainer>

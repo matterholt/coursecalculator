@@ -1,36 +1,30 @@
 <script>
+  let cousreMethod = "";
+
+  let schedulingMethods = ["semesters", " quarterly", "custom"];
 </script>
 
 <fieldset>
   <legend>Method of scheduling</legend>
-  <div>
-    <input
-      type="radio"
-      id="semesters"
-      name="method_course_cal"
-      value="semesters"
-      checked
-    />
-    <label for="semesters">Semesters</label>
-  </div>
-
-  <div>
-    <input
-      type="radio"
-      id="quarterly"
-      name="method_course_cal"
-      value="quarterly"
-    />
-    <label for="quarterly">Quarterly</label>
-  </div>
-
-  <div>
-    <input type="radio" id="custom" name="method_course_cal" value="custom" />
-    <label for="custom">Custom</label>
-  </div>
+  {#each schedulingMethods as method}
+    <div class:active={cousreMethod === method}>
+      <input
+        type="radio"
+        id={method}
+        name="method_course_cal"
+        value={method}
+        bind:group={cousreMethod}
+      />
+      <label for="semesters">{method}</label>
+    </div>
+  {/each}
 </fieldset>
 
 <style>
+  .active {
+    background-color: rebeccapurple;
+  }
+
   fieldset {
     display: flex;
   }
