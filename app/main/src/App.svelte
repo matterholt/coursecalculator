@@ -2,7 +2,7 @@
   import Greet from "./lib/Greet.svelte";
   import ColumnFlexContainer from "./lib/base_componets/ColumnFlexContainer.svelte";
   import DateSetter from "./lib/course_dates_components/DateSetter.svelte";
-  import DateCalculations from "./lib/course_dates_components/DateCalculations.svelte";
+  import DateCalculations from "./lib/course_dates_components/DateSchoolQuarters.svelte";
   import CouresSchedulueSettings from "./lib/course_dates_components/course_scheduling/CouresSchedulueSettings.svelte";
 
   import { startDate, endDate } from "./store/store";
@@ -23,8 +23,6 @@
   <h1>Course Calculator</h1>
   <div class="column">
     <DateSetter />
-
-    <DateCalculations />
   </div>
 </main>
 
