@@ -9,7 +9,7 @@
   class:boxsize
 >
   <button on:click={() => (dateIsFixed = !dateIsFixed)}
-    >{dateIsFixed ? "O" : "||"}</button
+    >{dateIsFixed ? "||" : "O"}</button
   >
 </div>
 

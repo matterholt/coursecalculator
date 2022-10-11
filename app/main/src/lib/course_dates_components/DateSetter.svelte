@@ -2,6 +2,7 @@
   import ColumnFlexContainer from "../base_componets/ColumnFlexContainer.svelte";
   import LockInDate from "./components/LockInDate.svelte";
   import CalculatedDates from "./components/CalcualtedDates.svelte";
+  import DateInput from "./components/DateInput.svelte";
 
   // import { startDate, endDate } from "../../store/store";
 
@@ -11,37 +12,25 @@
   let startDateIsFixed = true;
   let endDateIsFixed = false;
 
-  // active method of calcualtion
+  // Checks
 
-  function adjustDate() {
-    if (startDateIsFixed && endDateIsFixed) {
-      alert("Start and End date are fixed, waz up!");
-      return;
-    }
-    if (startDateIsFixed) {
-      //add date to end date
-      alert("have added or remove days from course, end date is addjusted");
-      return;
-    }
-    if (endDateIsFixed) {
-      alert("have added or remove days from course, start date is addjusted");
-      return;
-    }
-  }
 </script>
 
 <ColumnFlexContainer>
   <label>
     Start Date: {startDateIsFixed ? "LOCKED" : ""}
+
     <div class="container_input">
       <input type="date" bind:value={startDate} disabled={startDateIsFixed} />
       <LockInDate bind:dateIsFixed={startDateIsFixed} />
     </div>
   </label>
+
   <label>
     End Date: {endDateIsFixed ? "LOCKED" : ""}
     <div class="container_input">
       <input type="date" bind:value={endDate} disabled={endDateIsFixed} />
+
       <LockInDate bind:dateIsFixed={endDateIsFixed} />
     </div>
   </label>
@@ -49,6 +38,13 @@
 </ColumnFlexContainer>
 
 <style>
+  .locked {
+    background-color: rgb(17, 11, 11);
+    color: white;
+  }
+  .unlocked {
+    background-color: green;
+  }
   .container_input {
     display: flex;
     flex-direction: row;
