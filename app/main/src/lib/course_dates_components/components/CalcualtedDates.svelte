@@ -1,7 +1,6 @@
 <script>
   import dayjs from "dayjs";
   import duration from "dayjs/plugin/duration";
-
   dayjs.extend(duration);
 
   export let startDate;
@@ -19,5 +18,7 @@
     <li>Days: <span>{numberOfSchoolDays}</span></li>
     <li>Weeks: <span>{numberOfWeeks}</span></li>
     <li>Months: <span>{numberOfMonths}</span></li>
+    <li>{startDate}</li>
+    <li>{endDate}</li>
   </ul>
 </div>
