@@ -2,15 +2,17 @@
   import dayjs from "dayjs";
   import duration from "dayjs/plugin/duration";
   dayjs.extend(duration);
+  import { courseSpanDates } from "../../../store/dateSetter_store";
+  let dates = {};
+  courseSpanDates.subscribe((value) => (dates = value));
 
-  export let startDate;
-  export let endDate;
+  $: end = dayjs(dates.end);
 
-  $: end = dayjs(endDate);
+  $: numberOfSchoolDays = end.diff(dates.start, "days");
+  $: numberOfWeeks = end.diff(dates.start, "week");
+  $: numberOfMonths = end.diff(dates.start, "month");
 
-  $: numberOfSchoolDays = end.diff(startDate, "days");
-  $: numberOfWeeks = end.diff(startDate, "week");
-  $: numberOfMonths = end.diff(startDate, "month");
+  // remove week days
 </script>
 
 <div>
@@ -18,7 +20,7 @@
     <li>Days: <span>{numberOfSchoolDays}</span></li>
     <li>Weeks: <span>{numberOfWeeks}</span></li>
     <li>Months: <span>{numberOfMonths}</span></li>
-    <li>{startDate}</li>
-    <li>{endDate}</li>
+    <li>{dates.start}</li>
+    <li>{dates.end}</li>
   </ul>
 </div>

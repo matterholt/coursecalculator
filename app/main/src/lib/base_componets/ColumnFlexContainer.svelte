@@ -11,5 +11,6 @@
     padding: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
+    align-items: center;
   }
 </style>

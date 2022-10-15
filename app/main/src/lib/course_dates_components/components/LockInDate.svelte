@@ -1,29 +1,33 @@
 <script>
   export let dateIsFixed;
-  let boxsize;
 </script>
 
-<div
+<button
   class:locked={dateIsFixed === true}
   class:unlocked={dateIsFixed === false}
-  class:boxsize
+  class="boxsize"
+  on:click={() => (dateIsFixed = !dateIsFixed)}
+  >{dateIsFixed ? "||" : "O"}</button
 >
-  <button on:click={() => (dateIsFixed = !dateIsFixed)}
-    >{dateIsFixed ? "||" : "O"}</button
-  >
-</div>
 
 <style>
   .boxsize {
+    display: grid;
+    place-items: center;
+    background-color: white;
     width: 20px;
     height: 20px;
+    font-size: 0.75em;
     border-radius: 50%;
-    background-color: white;
+  }
+  button {
+    margin: 0;
+    padding: 0;
   }
   .locked {
-    background-color: red;
+    background-color: rgb(178, 64, 64);
   }
   .unlocked {
-    background-color: green;
+    background-color: rgb(59, 158, 59);
   }
 </style>

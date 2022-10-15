@@ -1,28 +1,49 @@
 <script>
   import LockInDate from "./LockInDate.svelte";
-
-  export let dateToAdjust;
+  import { courseSpanDates } from "../../../store/dateSetter_store";
+  export let objectKey;
   export let title;
 
+  let dates = {};
+
   let dateLocked = false;
+  courseSpanDates.subscribe((data) => (dates = data));
+
+  let dateToAdjust = dates?.[objectKey];
+
+  function handleChange() {
+    courseSpanDates.update((dates) => {
+      return { ...dates, [objectKey]: dateToAdjust };
+    });
+  }
+
+  
 </script>
 
 <label class:locked={dateLocked === true} class:unlocked={dateLocked === false}>
   {title}
-  {dateLocked ? "LOCKED" : ""}
+
   <div class="container_input">
-    {#if dateLocked === false}
-      <input type="date" bind:value={dateToAdjust} disabled={dateLocked} />
-    {:else}
-      <p>{dateToAdjust}</p>
-    {/if}
     <LockInDate bind:dateIsFixed={dateLocked} />
+    {#if dateLocked === false}
+      <input
+        class="customInput"
+        type="date"
+        bind:value={dateToAdjust}
+        on:change={() => handleChange()}
+        disabled={dateLocked}
+      />
+    {:else}
+      <div class="customInput  inputvalue_locked">
+        <p>{dateToAdjust}</p>
+      </div>
+    {/if}
   </div>
 </label>
 
 <style>
   .locked {
-    background-color: rgb(17, 11, 11);
+    background-color: rgb(68, 65, 65);
     color: white;
   }
   .unlocked {
@@ -33,24 +54,34 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: var(--radius-sm);
   }
   label {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    text-align: center;
     height: min-content;
-    width: 200px;
+    border-radius: var(--radius-sm);
+    width: 150px;
+    padding: 5px;
+    box-shadow: var(--shawdow-sm);
   }
+  .inputvalue_locked {
+    color: rgb(131, 117, 117);
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+  }
+  .customInput {
+    padding: 2px;
+    width: 95px;
+    height: 37px;
+  }
+
   p {
     margin: 0px;
-    padding: 2px;
-    width: 95px;
-    height: 37px;
-  }
-  input {
-    padding: 2px;
-    width: 95px;
-    height: 37px;
+    padding: 0;
   }
 </style>
