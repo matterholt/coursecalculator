@@ -7,7 +7,6 @@ export const courseSpanDates = writable(
     {
         start : "2022-11-06",
         end : "2023-05-13",
-
     }
 )
 

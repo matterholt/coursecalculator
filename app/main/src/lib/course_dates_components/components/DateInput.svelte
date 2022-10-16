@@ -1,4 +1,6 @@
 <script>
+  import { onDestroy } from "svelte";
+
   import LockInDate from "./LockInDate.svelte";
   import { courseSpanDates } from "../../../store/dateSetter_store";
   export let objectKey;
@@ -17,7 +19,10 @@
     });
   }
 
-  
+  const unsubscribe = courseSpanDates.subscribe((value) => {
+    dates = value;
+  });
+  onDestroy(unsubscribe);
 </script>
 
 <label class:locked={dateLocked === true} class:unlocked={dateLocked === false}>

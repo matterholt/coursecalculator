@@ -1,4 +1,6 @@
 <script>
+  import { onDestroy } from "svelte";
+
   import dayjs from "dayjs";
   import duration from "dayjs/plugin/duration";
   dayjs.extend(duration);
@@ -13,6 +15,11 @@
   $: numberOfMonths = end.diff(dates.start, "month");
 
   // remove week days
+
+  const unsubscribe = courseSpanDates.subscribe((value) => {
+    dates = value;
+  });
+  onDestroy(unsubscribe);
 </script>
 
 <div>
