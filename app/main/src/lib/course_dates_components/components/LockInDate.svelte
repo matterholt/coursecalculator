@@ -1,13 +1,20 @@
 <script>
-  export let dateIsFixed;
+  import { createEventDispatcher } from "svelte";
+  import { adjust_dates } from "../../../store/dateSetter_store";
+  const dispatch = createEventDispatcher();
+  let dateIsFixed;
+
+  function updateValue() {
+    console.log("toggle input locker");
+    dispatch("handleIt", dateIsFixed);
+  }
 </script>
 
 <button
   class:locked={dateIsFixed === true}
   class:unlocked={dateIsFixed === false}
   class="boxsize"
-  on:click={() => (dateIsFixed = !dateIsFixed)}
-  >{dateIsFixed ? "||" : "O"}</button
+  on:click={adjust_dates}>{dateIsFixed ? "||" : "O"}</button
 >
 
 <style>

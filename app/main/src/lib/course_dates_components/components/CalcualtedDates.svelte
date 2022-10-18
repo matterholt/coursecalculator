@@ -8,11 +8,13 @@
   let dates = {};
   courseSpanDates.subscribe((value) => (dates = value));
 
+  let numberOfDaysPerWeek = 5;
+
   $: end = dayjs(dates.end);
 
-  $: numberOfSchoolDays = end.diff(dates.start, "days");
-  $: numberOfWeeks = end.diff(dates.start, "week");
   $: numberOfMonths = end.diff(dates.start, "month");
+  $: numberOfWeeks = end.diff(dates.start, "week");
+  $: numberOfSchoolDays = numberOfWeeks * 5;
 
   // remove week days
 
@@ -24,9 +26,10 @@
 
 <div>
   <ul>
-    <li>Days: <span>{numberOfSchoolDays}</span></li>
-    <li>Weeks: <span>{numberOfWeeks}</span></li>
+    <li>numb week days <br />of school: <span>{numberOfDaysPerWeek}</span></li>
     <li>Months: <span>{numberOfMonths}</span></li>
+    <li>Weeks: <span>{numberOfWeeks}</span></li>
+    <li>Days: <span>{numberOfSchoolDays}</span></li>
     <li>{dates.start}</li>
     <li>{dates.end}</li>
   </ul>

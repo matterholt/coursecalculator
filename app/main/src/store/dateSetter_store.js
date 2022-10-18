@@ -9,26 +9,26 @@ export const courseSpanDates = writable(
         end : "2023-05-13",
     }
 )
+export let activeSetDate =  writable({
+  isStartDateLocked : false,
+  isEndDateLocked : true
+
+})
 
 
-let fixedStartDate = false
-let fixedEndDate = true
 
 
-export function adjust_dates (changedDate){
-    if (fixedStartDate){
-        endDate = changedDate
-        console.log(`Update end date to ${changedDate}`)
+// export function adjust_dates (whatToggle){
+//     console.log("from date setter store");
+//     if (whatToggle === "start" && !fixedStartDate) {
+//       fixedStartDate = true;
+//       fixedStartDate = false;
+//     } else if (whatToggle === "end" && !fixedStartDate) {
+//       fixedStartDate = false;
+//       fixedStartDate = true;
+//     } else {
+//       fixedStartDate = false;
+//       fixedStartDate = false;
+//     }
 
-    }
-    if (fixedEndDate){
-        // startDate = changedDate
-        console.log(`Update start date to ${changedDate}`)
-    }
-    if (fixedStartDate && fixedEndDate){
-    alert('Both dates are locked')
-    }
-
-    // finally need to update which ever input comes in
-
-} 
+// } 
