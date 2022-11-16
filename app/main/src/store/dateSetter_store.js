@@ -12,12 +12,12 @@ export const courseSpanDates = writable(
 export let activeSetDate =  writable({
   isStartDateLocked : false,
   isEndDateLocked : true
-
 })
 
 
 
 
+// export function adjust_dates (whatToggle){
 // export function adjust_dates (whatToggle){
 //     console.log("from date setter store");
 //     if (whatToggle === "start" && !fixedStartDate) {

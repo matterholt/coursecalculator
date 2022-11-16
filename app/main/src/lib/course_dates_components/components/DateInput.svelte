@@ -1,16 +1,34 @@
 <script>
-  import { onDestroy,createEventDispatcher } from "svelte";
-  import {  } from "svelte";
 
-  import { courseSpanDates } from "../../../store/dateSetter_store";
-  import LockInDate from "./LockInDate.svelte";
+import { onDestroy,createEventDispatcher } from "svelte";
+import { courseSpanDates,activeSetDate } from "../../../store/dateSetter_store";
+import LockInDate from "./LockInDate.svelte";
+
+
+
+
+  const dayKey = {
+    start : "isStartDateLocked",
+    end : "isEndDateLocked"
+  }
+
 
   export let objectKey;
   export let title;
+  
+
+  // control which date should be fixed
+  let dateLocked 
+  const unsubscribeActiveDateStore = activeSetDate.subscribe((data) => {
+    return dateLocked = data[dayKey[objectKey]]
+  });
+  onDestroy(unsubscribeActiveDateStore);
+
+  // defined dates to save
+  let scheduledDate = ""
 
   let dates = {};
 
-  export let dateLocked = false;
   courseSpanDates.subscribe((data) => (dates = data));
 
   let dateToAdjust = dates?.[objectKey];
@@ -21,29 +39,33 @@
     });
   }
 
+
+
+
+
+
   const unsubscribe = courseSpanDates.subscribe((value) => {
     dates = value;
   });
   onDestroy(unsubscribe);
 
 
-  function handle (){
-    
-  }
 </script>
 
 <label class:locked={dateLocked === true} class:unlocked={dateLocked === false}>
   {title}
 
+  <p>{JSON.stringify(dateLocked)}</p>
+  <!-- <p>{dayKey[objectKey]}</p> -->
+
   <div class="container_input">
-    <LockInDate bind:dateIsFixed={dateLocked} />
+    <LockInDate bind:objectKey={dayKey[objectKey]} />
     {#if dateLocked === false}
       <input
         class="customInput"
         type="date"
         bind:value={dateToAdjust}
         on:change={() => handleChange()}
-        disabled={dateLocked}
       />
     {:else}
       <div class="customInput  inputvalue_locked">

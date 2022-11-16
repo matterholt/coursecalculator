@@ -1,20 +1,25 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-  import { adjust_dates } from "../../../store/dateSetter_store";
-  const dispatch = createEventDispatcher();
-  let dateIsFixed;
+  import {activeSetDate} from "../../../store/dateSetter_store"
+  let inputLocked = false; 
+  export let objectKey
+  
 
-  function updateValue() {
-    console.log("toggle input locker");
-    dispatch("handleIt", dateIsFixed);
+
+  // Update the global state
+  function adjust_dates(){
+    inputLocked  = !inputLocked
+    let udpateState = { [objectKey] : inputLocked}
+    activeSetDate.update((state)=>  state = {...state, ...udpateState})
   }
+
+
 </script>
 
 <button
-  class:locked={dateIsFixed === true}
-  class:unlocked={dateIsFixed === false}
+  class:locked={inputLocked === true}
+  class:unlocked={inputLocked === false}
   class="boxsize"
-  on:click={adjust_dates}>{dateIsFixed ? "||" : "O"}</button
+  on:click={adjust_dates}>{inputLocked ? "||" : "O"}</button
 >
 
 <style>
