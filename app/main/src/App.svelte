@@ -1,5 +1,5 @@
 <script>
-  import DateSetter from "./lib/course_dates_components/DateSetter.svelte";
+  import DateSetter from "./lib/date_setter_components/DateSetter.svelte";
 </script>
 
 <main class="container">
