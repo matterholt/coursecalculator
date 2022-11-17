@@ -1,8 +1,11 @@
 <script>
+  import { onDestroy } from "svelte";
   import {activeSetDate} from "../../../store/dateSetter_store"
-  let inputLocked = false; 
   export let objectKey
   
+  // need to udpate what store
+  export let inputLocked
+
 
 
   // Update the global state
