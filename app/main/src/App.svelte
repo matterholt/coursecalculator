@@ -1,19 +1,10 @@
 <script>
-  import DateSetter from "./lib/date_setter_components/DateSetter.svelte";
+  import ScholeYearSettings from "./lib/pages/SchoolYearSettings.svelte";
 </script>
 
 <main class="container">
   <h1>Course Calculator</h1>
-  <div class="column">
-    <DateSetter />
-  </div>
+<ScholeYearSettings />
 </main>
 
-<style>
-  .column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-</style>
+

@@ -4,7 +4,7 @@
   import dayjs from "dayjs";
   import duration from "dayjs/plugin/duration";
   dayjs.extend(duration);
-  import { courseSpanDates } from "../../../store/dateSetter_store";
+  import { courseSpanDates } from "../../store/dateSetter_store";
   let dates = {};
   courseSpanDates.subscribe((value) => (dates = value));
 

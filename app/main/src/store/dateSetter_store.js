@@ -11,7 +11,7 @@ export const courseSpanDates = writable(
 )
 export let activeSetDate =  writable({
   isStartDateLocked : false,
-  isEndDateLocked : true
+  isEndDateLocked : false
 })
 
 

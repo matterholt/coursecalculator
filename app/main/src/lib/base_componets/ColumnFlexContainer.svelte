@@ -5,6 +5,7 @@
 <style>
   .datecalculations__containter {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     outline: solid;
     width: 90%;

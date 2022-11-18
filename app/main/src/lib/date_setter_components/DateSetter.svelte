@@ -1,6 +1,5 @@
 <script>
   import ColumnFlexContainer from "../base_componets/ColumnFlexContainer.svelte";
-  import CalcualtedDates from "./components/CalcualtedDates.svelte";
   import DateInput from "./components/DateInput.svelte";
 
 
@@ -15,7 +14,6 @@
     objectKey="end"
     title="End Date :"
   />
-  <CalcualtedDates />
 </ColumnFlexContainer>
 
 <style>
