@@ -14,6 +14,8 @@ export let activeSetDate =  writable({
   isEndDateLocked : false
 })
 
+export let numbOfClassDayPerWeek =writable(5)
+
 
 
 

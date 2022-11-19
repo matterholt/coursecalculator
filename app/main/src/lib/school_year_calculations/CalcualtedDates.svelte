@@ -4,11 +4,13 @@
   import dayjs from "dayjs";
   import duration from "dayjs/plugin/duration";
   dayjs.extend(duration);
-  import { courseSpanDates } from "../../store/dateSetter_store";
+
+  import { courseSpanDates,numbOfClassDayPerWeek } from "../../store/dateSetter_store";
   let dates = {};
   courseSpanDates.subscribe((value) => (dates = value));
 
-  let numberOfDaysPerWeek = 5;
+  $numbOfClassDayPerWeek
+  $: console.log($numbOfClassDayPerWeek)
 
   $: end = dayjs(dates.end);
 
@@ -26,7 +28,7 @@
 
 <div>
   <ul>
-    <li>numb week days <br />of school: <span>{numberOfDaysPerWeek}</span></li>
+    <li>numb week days <br />of school: <span>{$numbOfClassDayPerWeek}</span></li>
     <li>Months: <span>{numberOfMonths}</span></li>
     <li>Weeks: <span>{numberOfWeeks}</span></li>
     <li>Days: <span>{numberOfSchoolDays}</span></li>

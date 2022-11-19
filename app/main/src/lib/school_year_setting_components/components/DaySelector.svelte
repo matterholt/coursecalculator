@@ -4,17 +4,18 @@
     export let isActive
     export let updateState
 
+
 </script>
 
-<label class:isActive class="dayContainer" on:click={updateState(day, isActive)}>
+<label class:isActive class="dayContainer" >
     {day}
-    <input type=checkbox bind:checked={isActive} />
+    <input type=checkbox checked={isActive} on:click={updateState(day, isActive)}/>
   </label>
 
 
   <style scoped>
       .isActive{
-          font-weight: bold;
+        font-weight: bold;
         background-color: rgb(148, 160, 160);
         color: rgb(26, 25, 25);
       }
