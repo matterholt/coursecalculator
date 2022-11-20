@@ -1,20 +1,23 @@
 <script>
-  import ColumnFlexContainer from "../base_componets/ColumnFlexContainer.svelte";
+  import FlexContainer from "../base_componets/FlexContainer.svelte";
   import DateInput from "./components/DateInput.svelte";
 
 
 </script>
 
-<ColumnFlexContainer>
-  <DateInput
+<FlexContainer>
+  <FlexContainer flexDir="row" solid="">
+
+    <DateInput
     objectKey="start"
     title="Start Date :"
-  />
-  <DateInput
+    />
+    <DateInput
     objectKey="end"
     title="End Date :"
-  />
-</ColumnFlexContainer>
+    />
+  </FlexContainer>
+</FlexContainer>
 
 <style>
 </style>

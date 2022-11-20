@@ -1,5 +1,5 @@
 <script>
-  import ColumnFlexContainer from "../base_componets/ColumnFlexContainer.svelte";
+
   import CouresSchedulueSettings from "./CouresSchedulueSettings.svelte";
 
   let numberDaysOfCourse = "??";
@@ -17,7 +17,7 @@
   };
 </script>
 
-<ColumnFlexContainer>
+<div>
   <div>
     <div>
       <CouresSchedulueSettings />
@@ -47,7 +47,7 @@
       </ul>
     </div>
   </div>
-</ColumnFlexContainer>
+</div>
 
 <style>
 </style>

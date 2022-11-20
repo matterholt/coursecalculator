@@ -1,13 +1,17 @@
-<div class="datecalculations__containter">
+<script>
+  export let flexDir = 'column'
+  export let solid = 'solid 1px white'
+
+</script>
+
+<div class="datecalculations__containter"style:border-bottom={solid} style:flex-direction={flexDir}>
   <slot />
 </div>
 
 <style>
   .datecalculations__containter {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
-    outline: solid;
     width: 90%;
     padding: 10px;
     margin-bottom: 10px;

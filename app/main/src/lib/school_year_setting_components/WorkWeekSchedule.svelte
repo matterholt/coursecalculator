@@ -1,6 +1,6 @@
 <script>
   import {numbOfClassDayPerWeek} from "../../store/dateSetter_store"
-  import ColumnFlexContainer from "../base_componets/ColumnFlexContainer.svelte";
+  import FlexContainer from "../base_componets/FlexContainer.svelte";
   import DaySelector from "./components/DaySelector.svelte";
 
   let dayOfWeek = {
@@ -18,6 +18,7 @@
     const newDayActive = !dayOfWeek[day]
     dayOfWeek = {...dayOfWeek, ...{[day]: newDayActive}}
   }
+  
   $:{
     // update global store, 
    let numberOfSchooldaysPerweek = Object.entries(dayOfWeek).filter(([key, value]) => value === true).length
@@ -28,7 +29,7 @@
 
 
 </script>
-<ColumnFlexContainer>
+<FlexContainer>
   <h2>{$numbOfClassDayPerWeek} of days of school per week</h2>
 
   <div class="container">
@@ -36,7 +37,7 @@
       <DaySelector {day}  isActive={dayOfWeek[day]} {updateState}/>
     {/each}
   </div>
-</ColumnFlexContainer>
+</FlexContainer>
 
 <style>
   .container{
