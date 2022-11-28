@@ -3,6 +3,8 @@
   import FlexContainer from "../base_componets/FlexContainer.svelte";
   import DaySelector from "./components/DaySelector.svelte";
 
+
+  // save to store,
   let dayOfWeek = {
     Mon:true,
     Tues:true,

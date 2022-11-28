@@ -19,6 +19,19 @@
 
   // TODO, Move all calculations to RUST which will return the calculated json 
 
+
+  //
+  ////// Calculations
+
+  /*
+  Adjust date dependant on which date is locked, 
+
+
+
+  Adjust days 
+
+  */
+ const longestClassScheduled = 26
   const unsubscribe = courseSpanDates.subscribe((value) => {
     dates = value;
   });
@@ -29,14 +42,17 @@
   <ul>
     <li>number week days <br />of school: <span>{$numbOfClassDayPerWeek}</span></li>
     <li>numb Vacation days <br />of school: <span>{$numbOfClassDayPerWeek}</span></li>
-
   </ul>
+
   <ul>
     <li>Months: <span>{numberOfMonths}</span></li>
     <li>Weeks: <span>{numberOfWeeks}</span><br><span class="average">Average: {26} wks</span></li>
     <li>Days: <span>{numberOfSchoolDays} </span><br><span class="average">Average: {150} days</span></li>
+    <li>Days short to requirement: <span style="color:red">{150 - numberOfSchoolDays}</span></li>
   </ul>
+
   <ul>
+    <li>Longest class {longestClassScheduled}</li>
     <li>{dates.start}</li>
     <li>{dates.end}</li>
   </ul>
