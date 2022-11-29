@@ -1,27 +1,12 @@
 
 <script>
-  import {numbOfClassDayPerWeek} from "../../store/dateSetter_store"
+  import {daysScheduledOff} from "../../store/daysOffSchedule_store"
   import FlexContainer from "../base_componets/FlexContainer.svelte";
-    import ScheduleDateOffForm from "./components/ScheduleDateOffForm.svelte";
-    import ScheduleDayListed from "./components/ScheduleDayListed.svelte";
-
-  const datesScheduledOff =[
-    {
-      type: "holiday",
-      _id : 101,
-      startDate : "2022-12-25",
-      endDate : "2022-12-30",
-      title : "Christmas Break"
-    },    {
-      type: "Vaction",
-      _id : 201,
-      startDate : "2022-04-05",
-      endDate : null,
-      title : "Short Family Trip"
-    }
-  ]
+  import ScheduleDateOffForm from "./components/ScheduleDateOffForm.svelte";
+  import ScheduleDayListed from "./components/ScheduleDayListed.svelte";
 
 
+  $: daysOff = $daysScheduledOff
 
 </script>
 <FlexContainer  >
@@ -34,7 +19,7 @@
   <div>
     <h3>Listed days</h3>
     <ul>
-        {#each datesScheduledOff as scheduleEvent}
+        {#each daysOff as scheduleEvent}
         <ScheduleDayListed {scheduleEvent}/>
         {/each}
     </ul>
@@ -43,6 +28,12 @@
 </FlexContainer>
 
 <style>
+  ul{
+    margin:0;
+    list-style: none;
+    width: 550px;
+
+  }
 
 
 </style>
