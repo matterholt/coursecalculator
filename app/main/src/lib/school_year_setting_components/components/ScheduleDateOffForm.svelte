@@ -1,10 +1,13 @@
 <script>
 import {daysScheduledOff} from "../../../store/daysOffSchedule_store"
 
-let title = "one"
-let startDate = "2022-12-25"
-let endDate = "2022-12-25" // if not changed event is only one day
-let eventType = "fun"
+$: title = ""
+$: startDate = ""
+$: endDate = ""
+$: eventType = ""
+
+let eventIsMultipleDays = false
+$: formIsOkToSubmit = false
 
 
 const formStatus = {isDisabled: true, info:"title"}
@@ -17,23 +20,31 @@ function clearInputs (){
     endDate=""
     eventType=""
 }
-$:{
-    // check Items for emptys
 
+
+$:{
+    let formInputs = [title,startDate,eventType]
+    console.log(`add this ${formInputs}`)
+    const emptyInputs = formInputs.includes("")
+    if (!emptyInputs){
+        console.log("Inputs are there and form can be submited")
+        formIsOkToSubmit = true
+    }else{
+        console.log("throw some error")
+
+    }
 }
 
 
 function handleSubmit (){
-    if (!formStatus?.isDisabled) {
+    if (formIsOkToSubmit){
         let tempNumber = $daysScheduledOff.length + 1
         const Items = {title,startDate,endDate,eventType,_id:tempNumber}
         console.log(Items)
         // Save to local data base, 
         daysScheduledOff.update((currentState) => [Items,...currentState])
-        
-        clearInputs()
-    }
-    alert(`Missing ${formStatus.info}`)
+        }
+
 }
 
 
@@ -49,18 +60,35 @@ function handleSubmit (){
         Start Date:
         <input bind:value={startDate}  type=date/>
     </label>
+    {#if eventIsMultipleDays}
+<div class="button_container">
+
     <label>
-         End Date:
+        End Date:
         <input  bind:value={endDate}  type=date/>
     </label>
+    <button class="button_exit" on:click={()=> eventIsMultipleDays=!eventIsMultipleDays}>X</button>
+</div>
+
+    {:else}
+    <button on:click={()=> eventIsMultipleDays=!eventIsMultipleDays}>End Date</button>
+    {/if}
+
     <label>
         type of day:
         <input bind:value={eventType}  type=text/>
     </label>
-	<button type="submit">
-        Please save me
-	</button>
+    
+	<button 
 
+    type="submit">
+        Please save me {formIsOkToSubmit}
+	</button>
+{#if formIsOkToSubmit}
+    <p>OK to Submit</p>
+    {:else}
+    <p>not able to submit</p>
+{/if}
 </form>
 
 
@@ -73,5 +101,17 @@ function handleSubmit (){
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
+    }
+    .button_exit{
+        font-size: 10px;
+        background-color: white;
+        color: gray;
+        font-weight: 900;
+        display: grid;
+        place-self: center;
+    }
+    .button_container{
+        display:grid;
+        place-self: center;
     }
 </style>
