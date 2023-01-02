@@ -38,7 +38,7 @@
   onDestroy(unsubscribe);
 </script>
 
-<FlexContainer flexDir="row">
+<FlexContainer flexDir="row" solid="">
   <ul>
     <li>number week days <br />of school: <span>{$numbOfClassDayPerWeek}</span></li>
     <li>numb Vacation days <br />of school: <span>{$numbOfClassDayPerWeek}</span></li>
@@ -63,5 +63,12 @@
     font-weight: 100;
     font-size: 0.75em;
     padding-left: 50px;
+  }
+  ul{
+    text-align: left;
+  }
+  span{
+    font-weight: 600;
+    color:rgb(127, 160, 190);
   }
 </style>

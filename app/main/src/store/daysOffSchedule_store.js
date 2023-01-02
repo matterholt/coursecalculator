@@ -2,18 +2,48 @@ import { writable } from 'svelte/store';
 
 export let daysScheduledOff = writable(
     [{ 
-      eventType: "holiday",
+      summary: "holiday",
       _id : 101,
-      startDate : "2022-12-25",
-      endDate : "2022-12-30",
-      title : "Christmas Break"
+      start :{dateTime: "2022-12-25"},
+      end : {dateTime: "2022-12-30"},
+      description : "Christmas Break"
     },
     {
-      eventType: "Vaction",
+      summary: "Vaction",
       _id : 201,
-      startDate : "2022-04-05",
-      endDate : null,
-      title : "Short Family Trip"
+      start :{dateTime: "2022-04-05"},
+      end :{dateTime: "2022-04-05"},
+      description : "Short Family Trip"
     }
   ] 
   );
+
+
+  // sample on google calender API
+const event = {
+  'summary': 'Google I/O 2015',
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': '2015-05-28T09:00:00-07:00',
+    'timeZone': 'America/Los_Angeles'
+  },
+  'end': {
+    'dateTime': '2015-05-28T17:00:00-07:00',
+    'timeZone': 'America/Los_Angeles'
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'}
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10}
+    ]
+  }
+};

@@ -51,9 +51,10 @@
 
   <style>
         .selectionsTab{
-      background-color: aliceblue;
-      color:black;
-      width: 720px;
+      width: 820px;
+      min-height: 400px;
+      background-color: white;
+      color: black;
     }
 
   </style>

@@ -1,17 +1,19 @@
 
 <script>
-  import CalcualtedDates from "../school_year_calculations/CalcualtedDates.svelte"
-    import DateSetter from "../school_year_setting_components/DateSetter.svelte"
-    import WorkWeekSchedule from '../school_year_setting_components/WorkWeekSchedule.svelte'
-    import ScheduledDaysOff from "../school_year_setting_components/ScheduledDaysOff.svelte"
+    import CalcualtedDates from "../school_year_calculations/CalcualtedDates.svelte"
+    import {NationalHolidays,ScheduledDaysOff,DateSetter,WorkWeekSchedule,} from "../school_year_setting_components/index.js"
+
     import {TabbedMenu,TabPanelDisplay,TabList,Tab} from "../base_componets/TabMenu/index";
 
 
   </script>
   <div class="column">
-    <CalcualtedDates />
+    
+    <div class="information_container">
+      <DateSetter />
+      <CalcualtedDates />
+    </div>
 
-    <DateSetter />
     <TabbedMenu>
       <TabList>
         <Tab>Day Per week</Tab>
@@ -28,6 +30,11 @@
         <ScheduledDaysOff />
       </TabPanelDisplay>
 
+      <TabPanelDisplay>
+        <NationalHolidays />
+      </TabPanelDisplay>
+
+
     </TabbedMenu>
 
   </div>
@@ -38,6 +45,10 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
+    }
+    .information_container{
+      display:grid;
+      grid-template-columns: 250px 1fr;
     }
 
   </style>

@@ -11,9 +11,10 @@
 </script>
 <FlexContainer  >
   <h2>Days Off from school</h2>
-  <div>
+  <p>enable Google to link, better to make request and save request though Google</p>
+  <p>follow format so can save to google calenders</p>
+  <div style="display:none;">
     <ScheduleDateOffForm />
-
   </div>
 
   <div>
@@ -24,10 +25,15 @@
         {/each}
     </ul>
   </div>
-
+.
 </FlexContainer>
 
 <style>
+  p{
+    font-size: 10px;
+    text-transform: uppercase;
+
+  }
   ul{
     margin:0;
     list-style: none;

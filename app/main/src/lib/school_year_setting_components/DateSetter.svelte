@@ -5,8 +5,7 @@
 
 </script>
 
-<FlexContainer>
-  <FlexContainer flexDir="row" solid="">
+  <FlexContainer flexDir="column" solid="">
 
     <DateInput
     objectKey="start"
@@ -17,7 +16,6 @@
     title="End Date :"
     />
   </FlexContainer>
-</FlexContainer>
 
 <style>
 </style>

@@ -1,29 +1,35 @@
 <script>
     export let scheduleEvent
 
-    $:({title,startDate,endDate,eventType,_id} = scheduleEvent)
+    $:({description,summary,start,end,_id} = scheduleEvent)
 
 
 </script>
 
         <li>
+          {summary}
           <div>
-          {title}
-          <span>{eventType}</span>
+          {description}
+          <span>{summary}</span>
         </div>
           <div>
-            <span>{startDate}</span>
-            <span>{endDate}</span>
+            <span>{start.dateTime}</span>
+            <span>{end.dateTime}</span>
           </div>
           <div >
-            <span>[change {_id}]</span>
-            <span> [delete {_id}]</span>
+            <div class="actions">[change {_id}]</div>
+            <div class="actions"> [delete {_id}]</div>
           </div>
         </li>
 
 
 
 <style>
+  .actions{
+    background-color: gray;
+    padding: 2px;
+    margin:1px;
+  }
 
   li {
     display:flex;
@@ -31,6 +37,9 @@
     width: 100%;
     border-bottom: 1px solid white;
     margin: 15px 0px;
+    border-radius: 5px;
+    border:solid black 1px;
+    padding:5px;
   }
   div{
     display: flex;
