@@ -5,12 +5,19 @@
 
     import {TabbedMenu,TabPanelDisplay,TabList,Tab} from "../base_componets/TabMenu/index";
 
+   
 
   </script>
   <div class="column">
     <div class="information_container">
       <DateSetter />
 
+
+      <div class="projected_date">
+        <div class="assign_schooldays">number of school days</div> 
+        <div class="assign_OFFdays">number of OFF days</div> 
+
+      </div>
     </div>
 
 
@@ -36,10 +43,22 @@
 
 
     </TabbedMenu>
-
+<CalcualtedDates/>
   </div>
 
   <style>
+    .projected_date{
+      width:550px;
+      display: grid;
+      grid-template-columns: 75% 25%;
+    }
+    .assign_schooldays{
+      background:rebeccapurple;
+
+    }
+    .assign_OFFdays{
+      background-color: cadetblue;
+    }
     .column {
       display: flex;
       flex-direction: column;
