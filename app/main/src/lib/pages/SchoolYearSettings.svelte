@@ -8,11 +8,11 @@
 
   </script>
   <div class="column">
-    
     <div class="information_container">
       <DateSetter />
-      <CalcualtedDates />
+
     </div>
+
 
     <TabbedMenu>
       <TabList>
@@ -47,8 +47,7 @@
       width: 100%;
     }
     .information_container{
-      display:grid;
-      grid-template-columns: 250px 1fr;
+
     }
 
   </style>

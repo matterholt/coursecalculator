@@ -60,45 +60,49 @@
 
 <style>
   .locked {
-    background-color: rgb(68, 65, 65);
-    color: white;
+    background-color: var(--main-theme-light);
+    color: var(--main-theme-dark)
   }
   .unlocked {
-    background-color: rgb(255, 255, 255);
-    color: black;
+    background-color: var(--main-theme-mid);
   }
   .container_input {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 5px;
+  
     border-radius: var(--radius-sm);
+
   }
   label {
     display: flex;
     flex-direction: column;
     text-align: center;
     height: min-content;
-    border-radius: var(--radius-sm);
     width: 150px;
-    padding: 5px;
-    box-shadow: var(--shawdow-sm);
+    color:var(--main-theme-light);
+
   }
   .inputvalue_locked {
-    color: rgb(131, 117, 117);
+    color: var(--main-theme-light);
     font-weight: 900;
     display: grid;
     place-items: center;
   }
   .customInput {
-    padding: 2px;
+    color:var(--main-theme-light);
+    border: 1px solid transparent;
+    border-bottom: solid 2px var(--main-theme-light);
+    padding:0;
     width: 95px;
-    height: 37px;
+    background-color: rgba(255, 255, 255, 0);
+
   }
 
   p {
     margin: 0px;
     padding: 0;
   }
+
 </style>

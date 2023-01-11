@@ -1,11 +1,11 @@
 <script>
-  import FlexContainer from "../base_componets/FlexContainer.svelte";
+
   import DateInput from "./components/DateInput.svelte";
 
 
 </script>
 
-  <FlexContainer flexDir="column" solid="">
+  <div class="date_sets">
 
     <DateInput
     objectKey="start"
@@ -15,7 +15,15 @@
     objectKey="end"
     title="End Date :"
     />
-  </FlexContainer>
+  </div>
 
 <style>
+  .date_sets{
+    display: flex;
+    justify-content: space-evenly;
+    width:550px;
+    background-color:var(--main-theme-mid);
+    margin-bottom: 20px;
+  }
+
 </style>

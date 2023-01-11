@@ -38,6 +38,10 @@
   button {
     margin: 0;
     padding: 0;
+
+    border-radius: 8px;
+    border: 1px solid transparent;
+  
   }
   .locked {
     background-color: rgb(178, 64, 64);
